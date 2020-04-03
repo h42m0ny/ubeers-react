@@ -1,18 +1,29 @@
 import React from 'react';
 import './App.css';
-import Layout from './components/Layout'
+import beers from './data/beers'
+import TitleBeer from './components/TitleBeer'
 
-function App() {
+class App extends React.Component {
+
+  constructor(){
+    super()
+    this.state = {
+      beer:beers[0].name
+    }
   
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Layout html={<h1>oo</h1>}>
-          <h2>Hello</h2>
-        </Layout>
-      </header>
-    </div>
-  );
+  }
+
+  render(){
+    console.log('hello render')
+    return  (
+      <div>
+      <TitleBeer beer={this.state.beer}/>
+      <button onClick={() => this.setState({beer:'Nouvelle Bière'})}>Change</button>
+     </div>
+    )
+  }
+
+ 
 }
 
 export default App;
