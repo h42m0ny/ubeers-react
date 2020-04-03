@@ -2,11 +2,18 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function Beer({beer,text}){
+
+function calc(value){
+  return value*10
+
+}
+
+function Beer({beer,text,calc}){
   return (
     <div>
      <h3>{beer}</h3>
      {text}
+     {calc(10)}
     </div>
   )
 }
@@ -29,7 +36,7 @@ function App() {
         </p>
         {
          beers.map((beer,key) => (
-          <Beer key={key} text={<Text/>} beer={beer}/>
+          <Beer key={key} text={<Text/>} beer={beer} isPass calc={calc}/>
          ))
         }
         <a
